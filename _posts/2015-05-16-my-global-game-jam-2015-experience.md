@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "My Global Game Jam 2015 Experience"
+date:   2015-05-16 12:00:00 +0000
+categories: events
+---
+
+Last month some friends and I spent the weekend participating in the Global Game Jam 2015. The [Global Game Jam][global-game-jam] is is a yearly event held in many different locations all over the world where game dev enthusiasts come together in teams in order to make a game in 48 hours under a common theme. The games that are developed during the jam are generally video games but it does also see other forms of games like board games, card games and social media games as well. At the end of the 48 hours everyone gets a chance to play each others games and vote for their favorite games in categories such as best art or best design. The experience of a game jam is probably best described as the full game development process; including game design, content creation and crunch time, condensed into 48 hours.
+
+![alt text](https://github.com/AerialMantis/aerialmantis.github.io/raw/master/images/game-jam-2015.jpg "Game Jam 2015"){:width="100%"}
+
+Game jams are great for people like me who really enjoy game development, but don't have much spare time to work on personal projects. I've been to a few different jams in the past and this is my second year at the Global Game Jam. This year we went to the jam that was held at the Glasgow Caledonia University; it was a great success and a lot of fun. The game jam was held over the weekend and started on the Friday evening; I got there late so I missed the introductions. I arrived shortly after they announced the theme; "What do we do now?", the rest of my team had found us a good spot and had just finished setting up so I was just in time for us to start discussing what kind of game we wanted to make.
+
+We first off decided we wanted to make a 2D game, a decision largely due to none of us having any experience in 3D art. Next we had to decide the language and framework we were going to use to develop the game. After discussing our collective experience, we decided that Unity would be the best choice, as we were all relatively familiar with it and it supports all of the platforms we wanted to target. Once that was decided we had to come up with an idea for the game itself. We went through various different ideas of strategy and puzzle games with mechanics stemming from changing controls or environment, observation and deduction and response and planning.
+
+![alt text](https://github.com/AerialMantis/aerialmantis.github.io/raw/master/images/design-board.jpg "Design Board"){:width="100%"}
+
+In the end we came up with the concept for our game 'Tower Turmoil'; a fast paced local multi-player strategy game in which two players compete to build a tower. However in order to build their tower they must recruit and command four groups of workers in various different tasks that would either aid the construction of their own tower or hinder the construction of their opponents tower. They way this is done is by constructing segments of the tower; each on top of the last, the goal is to construct the final battlement segment of the tower and raise your team flag, however this requires a large amount of workers. Some of the segments that are available include bed chambers for raising the group capacities allowing more workers, murder holes for killing potential new recruits for your opponent and cannons for destroying segments of your opponents tower. This concept applied to the theme in two ways; firstly as the workers must be constantly told what to do, as when they finish their task they would otherwise just wait idly, and secondly both players have to watch what their opponent is doing in order to decide what to do next in response.
+
+Once we had our idea down we got to work on the game, we divided up the work between us and began working on the core mechanics. In the early hours I spent much of my time getting back into developing using Unity, however with the helps of my team mates I quickly got the hang of it. We hit a slight bump in the road early on, as I took on a task that was larger than I expected which made it difficult for my team mates to integrate their work until I was finished, however we resolved it and got we were back on track again. We didn't sleep much over the 48 hours but when we did the University that was hosting us had an abundance of couches for us to catch some a nap on. During one of which some other game jamers experienced my ability to sleep through my alarm clock. As the jam drew to we began crunching to fix bugs, add artwork to polish the game and spend some time balancing the gameplay.
+
+![alt text](https://github.com/AerialMantis/aerialmantis.github.io/raw/master/images/tower-turmoil.jpg "Tower Turmoil"){:width="100%"}
+
+We were all very pleased with the final result, the game had a few minor issues, but for the most part was very playable and was really enjoyable. There were many features that didn't quite make it into the game; the original concept included many additional tower segments that were not in the final game and a card system, where in which the segments of the tower that each player could build would have been based on a common pool of cards that the players had to bid for. Additionally we would have liked to have added animations that would better demonstrate the effects of the different tower segments and spent some more time balancing the game play to make sure that it continued to be fun throughout.
+
+If anyone is interested in trying our game, you can find it [here][tower-turmoil].
+
+[global-game-jam]: http://globalgamejam.org/
+[tower-turmoil]: http://globalgamejam.org/2015/games/tower-turmoil
