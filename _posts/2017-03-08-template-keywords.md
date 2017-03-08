@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "Template & Typename Keywords"
+date:   2017-03-08 12:00:00 +0000
+categories: events
+---
+
 If you are have become familiar with writing and using C\+\+ templates you will likely be familiar with the `template` and `typename` keywords in the context of a template declaration, for example:
 
 ```cpp
