@@ -7,7 +7,7 @@ biography: "I am a software developer at <a href='http://www.codeplay.com'>Codep
 colophon: "This site is hosted at <a href='https://pages.github.com/'>Github Pages</a> and created with <a href='http://jekyllrb.com/'>Jekyll</a>.<br>Theme was created by Hugo Sereno Ferreira."
 
 baseurl: ""
-url: "https://aerialmantis.github.io"
+url: "https://staging.aerialmantis.github.io"
 
 twitter_username: aerialmantis
 github_username: aerialmantis
