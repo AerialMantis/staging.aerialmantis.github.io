@@ -12,7 +12,7 @@ template <typename T>
 void foo(T t);
 ```
 
-However there are two other contexts where it is nessesary to use the `template` and `typename` keywords, which often cause confusion at first sight. This post aims to demistify these cases, explaining when and why they are needed.
+However, there are two other contexts where it is necessary to use the `template` and `typename` keywords, which often cause confusion at first sight. This post aims to demystify these cases, explaining when and why they are needed.
 
 ## Template Keyword
 Consider the following code example:
@@ -30,11 +30,11 @@ void func(foo<T> f) {
 }
 ```
 
-At first glance this code looks correct, however when you compile this you will get an error that looks something like:
+At first glance this code looks correct, however, when you compile this you will get an error that looks something like:
 
 > error: expected primary-expression before 'float'
 
-Being faced with this error message it may not be clear what the problem is. The reason for this can actually be found in  two-phase name lookup; the rule that every template is compiled in two phases, firstly for general syntax and again once any depedant names are know. Due to a grammer ambiguity in C\+\+; being that the `<` token can be parsed either as the opening template brace of a call to a member function template specialisation or as a less than operator on the right hand side of a non-template. When the compiler parses code like this involving a dependant type, in this case `foo<T>` it cannot know which context it is and it asumes the latter. In order to instruct the compiler that this is in fact a call to a member function template specialisation it is nessesary to add the `template` keyword immediately after the `.`: 
+Being faced with this error message it may not be clear what the problem is. The reason for this can actually be found in two-phase name lookup; the rule that every template is compiled in two phases, firstly for general syntax and again once any dependent names are known. Due to a grammar ambiguity in C\+\+; being that the `<` token can be parsed either as the opening template brace of a call to a member function template specialisation or as a less than operator on the right-hand side of a non-template. When the compiler parses code like this involving a dependant type, in this case `foo<T>` it cannot know which context it is and it assumes the latter. In order to instruct the compiler that this is, in fact, a call to a member function template specialisation it is necessary to add the `template` keyword immediately after the `.`: 
 
 ```cpp
 template <typename T>
@@ -96,7 +96,7 @@ struct foo : public foo_base<T> {
 };
 ```
 
-This might seem odd, however there are cases due to inhetiance where the full type of the this pointer cannot be known until the class template is specialised, such as when the type inherits from another class template.
+This might seem odd, but there are cases due to inheritance where the full type of the this pointer cannot be known until the class template is specialised, such as when the type inherits from another class template.
 
 For those interested in the C\+\+ standardese, the section which describes this rule is as follows:
 
@@ -132,9 +132,9 @@ If you were to compile this code as it is, you would get an error for the line `
 
 > error: need 'typename' before 'type_or_value<T>::tv' because 'type_or_value<T>' is a dependent scope
 
-This error is better than the previous one as it tells you what to do, essentialy add the `typename` keyword immediately before the expression. But why is this nessesary? Again the reason for this can be found in the two-phase name lookup.
+This error is better than the previous one as it tells you what to do, essentially add the `typename` keyword immediately before the expression. But why is this necessary? Again the reason for this can be found in the two-phase name lookup.
 
-When the compiler parses code like this involving a dependant type, in this case `type_or_value<T>` it cannot know whether the member `tv` resolves to a type or a non-type. Therefore the compiler will asume non-type and it asumes the latter. In order to instruct the compiler that `tv` is in fact resolves to a type it is nessesary to add the `typename` keyword immediately before the expression:
+When the compiler parses code like this involving a dependant type, in this case, `type_or_value<T>` it cannot know whether the member `tv` resolves to a type or a non-type. Therefore the compiler will assume non-type and it assumes the latter. In order to instruct the compiler that `tv` is, in fact, resolves to a type it is necessary to add the `typename` keyword immediately before the expression:
 
 
 ```cpp
@@ -158,7 +158,7 @@ void func() {
 }
 ```
 
-However now that this keyword is there the compiler asumes that the expression will always resolve to a type, so if a later instantiation were to not conform to this, the compiler would through an error. For example:
+However now that this keyword is there the compiler assumes that the expression will always resolve to a type, so if a later instantiation were to not conform to this, the compiler would through an error. For example:
 
 ```cpp
 int main () {
