@@ -1,20 +1,20 @@
 ---
 layout: post
-title:  "Template & Typename Keywords"
+title:  "When and why are the template & typename keywords needed"
 date:   2017-03-08 12:00:00 +0000
-categories: events
+categories: C++
 ---
 
-If you are have become familiar with writing and using C\+\+ templates you will likely be familiar with the `template` and `typename` keywords in the context of a template declaration, for example:
+When working with C\+\+ templates you'll likely be familiar with the `template` and `typename` keywords in the context of template declarations, for example:
 
 ```cpp
 template <typename T>
 void foo(T t);
 ```
 
-However there are two additional contexts in which it is nessesary to use the `template` and `typename` keywords, which often cause confusion at first sight. This post aims to demistify these cases, explaining when and why tey are nessesary.
+However there are two other contexts where it is nessesary to use the `template` and `typename` keywords, which often cause confusion at first sight. This post aims to demistify these cases, explaining when and why they are needed.
 
-### Template Keyword
+## Template Keyword
 Consider the following code example:
 
 ```cpp
@@ -32,15 +32,9 @@ void func(foo<T> f) {
 
 At first glance this code looks correct, however when you compile this you will get an error that looks something like:
 
-```
-error: expected primary-expression before 'float'
-```
+> error: expected primary-expression before 'float'
 
-Being faced with this error message it may not be clear what the problem is. The reason for this can be found in the two-phase name lookup; the rule that every template is compiled in two phases, firstly for general syntax and again once any depedant names are know.
-
-In this example the function template `func` is compiled first for syntactical correctness without requiring the typename `T` and then again once the typename `T` is known. However due to a grammer ambiguity in C\+\+; being that the `<` keyword can be parsed in one of two ways, depending on the context. Either as the opening template brace of a call to a member function template specialisation or as a less than operator on the right hand side of a non-template.
-
-Since `foo<T>` is dependant on the type `T` the compiler is unable to infer which context this is and asumed the latter. Therefore in order to instruct the compiler that this is in fact a call to a member function template specialisation it is nessesary to add an additional `template` keyword directly after the `.`:
+Being faced with this error message it may not be clear what the problem is. The reason for this can actually be found in  two-phase name lookup; the rule that every template is compiled in two phases, firstly for general syntax and again once any depedant names are know. Due to a grammer ambiguity in C\+\+; being that the `<` token can be parsed either as the opening template brace of a call to a member function template specialisation or as a less than operator on the right hand side of a non-template. When the compiler parses code like this involving a dependant type, in this case `foo<T>` it cannot know which context it is and it asumes the latter. In order to instruct the compiler that this is in fact a call to a member function template specialisation it is nessesary to add the `template` keyword immediately after the `.`: 
 
 ```cpp
 template <typename T>
@@ -55,7 +49,7 @@ void func(foo<T> f) {
 }
 ```
 
-This same rule also applied to the pointer operator and to nested name qualifiers:
+This same rule is also applied to the pointer operator and to nested name qualifiers:
 
 ```cpp
 template <typename T>
@@ -83,12 +77,33 @@ void func() {
 }
 ```
 
-For those interested in the C++ standardese, the section which describes this rule is as follows:
+An interesting case for this is where you have to use the `template` keyword even when it follows the pointer operator of the this pointer:
+
+```cpp
+template <typename T>
+struct foo_base {
+  template <typename U>
+  void base_bar() {
+  }
+};
+
+template <typename T>
+struct foo : public foo_base<T> {
+  template <typename U>
+  void bar() {
+    this->template base_bar<U>();
+  }
+};
+```
+
+This might seem odd, however there are cases due to inhetiance where the full type of the this pointer cannot be known until the class template is specialised, such as when the type inherits from another class template.
+
+For those interested in the C\+\+ standardese, the section which describes this rule is as follows:
 
 > *$14.2/4:*
-*When the name of a member template specialization appears after . or -> in a postfix-expression, or after nested-name-specifier in a qualified-id, and the postfix-expression or qualified-id explicitly depends on a template-parameter (14.6.2), the member template name must be prefixed by the keyword template. Otherwise the name is assumed to name a non-template.*
+**When the name of a member template specialization appears after . or -> in a postfix-expression, or after nested-name-specifier in a qualified-id, and the postfix-expression or qualified-id explicitly depends on a template-parameter (14.6.2), the member template name must be prefixed by the keyword template. Otherwise the name is assumed to name a non-template.**
 
-### Typename Keyword
+## Typename Keyword
 
 Take another code example:
 
@@ -107,21 +122,20 @@ struct type_or_value<float> {
 };
 
 template <typename T>
-void func(foo<T> f) {
+void func() {
   using t = type_or_value<T>::tv;
   bool v = type_or_value<T>::tv;
 }
 ```
 
-If you were to compile this code as it is, you would get an error for ` using t = type_or_value<T>::tv;` something like:
+If you were to compile this code as it is, you would get an error for the line `using t = type_or_value<T>::tv;` something like:
 
-```
-error: need 'typename' before 'type_or_value<T>::tv' because 'type_or_value<T>' is a dependent scope
-```
+> error: need 'typename' before 'type_or_value<T>::tv' because 'type_or_value<T>' is a dependent scope
 
-This error is better than the previous one as it tells you what to do, essentialy add a typename on the right hand side of the assignment. But why is this nessesary? Again the reason for this can be found in the two-phase name lookup.
+This error is better than the previous one as it tells you what to do, essentialy add the `typename` keyword immediately before the expression. But why is this nessesary? Again the reason for this can be found in the two-phase name lookup.
 
-During the first phase `type_or_value<T>::tv` is dependant on the type `T`, which means that the compiler cannot know whether that expression resolved to a type or a type or a non-type. Therefore the compiler will asume non-type, requring the additional `typename` keyword to instruct the compiler that this should resolve to a type:
+When the compiler parses code like this involving a dependant type, in this case `type_or_value<T>` it cannot know whether the member `tv` resolves to a type or a non-type. Therefore the compiler will asume non-type and it asumes the latter. In order to instruct the compiler that `tv` is in fact resolves to a type it is nessesary to add the `typename` keyword immediately before the expression:
+
 
 ```cpp
 template <typename T>
@@ -138,33 +152,46 @@ struct type_or_value<float> {
 };
 
 template <typename T>
-void func(foo<T> f) {
+void func() {
   using t = typename type_or_value<T>::tv;
   bool v = type_or_value<T>::tv;
 }
 ```
 
-However now that this keyword is there the compiler asumes that expression to always resolve to a type, so if a later instantiation were to not conform to this, the compiler would through an error. For example:
+However now that this keyword is there the compiler asumes that the expression will always resolve to a type, so if a later instantiation were to not conform to this, the compiler would through an error. For example:
 
 ```cpp
 int main () {
-
-  foo<int> f;s
-  func(f);
-
+  func<int>(f);
 }
 ```
 
 This would result in an error like:
 
+> error: no type named 'tv' in 'struct type_or_value<int>'
+
+The `typename` keyword is not only needed in this case but every context where an unknown member exists in a context where a type is expected. For example:
+
+```cpp
+template <typename T>
+struct type_or_value;
+
+template <>
+struct type_or_value<int> {
+  static const bool tv = true;
+};
+
+template <>
+struct type_or_value<float> {
+  using tv = float;
+};
+
+template <typename T>
+struct foo {
+};
+
+template <typename T>
+void func() {
+  foo<typename type_or_value<T>::tv> f;
+}
 ```
-error: no type named 'tv' in 'struct type_or_value<int>'
-```
-
-+ Add standardese
-
-+ Next blog post class template vs template class
-
-+ It can be tempting to just nsert these keyword everywhere, but thi is not recommended.
-
-+ research: http://stackoverflow.com/questions/610245/where-and-why-do-i-have-to-put-the-template-and-typename-keywords
