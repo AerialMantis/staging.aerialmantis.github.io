@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "When and why are the template & typename keywords needed"
-date:   2017-03-08 12:00:00 +0000
-categories: C++
+title:  "When and why the template & typename keywords are needed"
+date:   2017-03-17 12:00:00 +0000
+categories: c++
 ---
 
 When working with C\+\+ templates you'll likely be familiar with the `template` and `typename` keywords in the context of template declarations, for example:
@@ -34,7 +34,9 @@ At first glance this code looks correct, however, when you compile this you will
 
 > error: expected primary-expression before 'float'
 
-Being faced with this error message it may not be clear what the problem is. The reason for this can actually be found in two-phase name lookup; the rule that every template is compiled in two phases, firstly for general syntax and again once any dependent names are known. Due to a grammar ambiguity in C\+\+; being that the `<` token can be parsed either as the opening template brace of a call to a member function template specialisation or as a less than operator on the right-hand side of a non-template. When the compiler parses code like this involving a dependant type, in this case `foo<T>` it cannot know which context it is and it assumes the latter. In order to instruct the compiler that this is, in fact, a call to a member function template specialisation it is necessary to add the `template` keyword immediately after the `.`: 
+Being faced with this error message it may not be clear what the problem is. The reason for the error can actually be found in two-phase name lookup; the rule that every template is compiled in two phases, firstly for general syntax and again once any dependent names (names that depend on a template parameter) are known. More specifically, due to a grammar ambiguity in C\+\+; being that the `<` token in an expresion such as `f.bar<float>()` can be parsed either as the start of a template argument list of a call to a member function template specialisation or as a less than operator, the compiler is not able to differentiate until the type of `f` is known.
+
+This means that in a case such as this when `f` is a dependent type; `foo<T>`, the compiler does not yet know what type `f` is, so the `.` operator is unable to lookup `bar` and the compiler treats it purely syntactically as a field of `foo<T>` so the following `<` is therefore interpreted as a less than operator. In order to instruct the compiler that this is, in fact, a call to a member function template specialisation it is necessary to add the `template` keyword immediately after the `.` operator:
 
 ```cpp
 template <typename T>
@@ -77,7 +79,7 @@ void func() {
 }
 ```
 
-An interesting case for this is where you have to use the `template` keyword even when it follows the pointer operator of the this pointer:
+An interesting case for this is where you have to use the `template` keyword even when it involves the this pointer:
 
 ```cpp
 template <typename T>
