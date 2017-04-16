@@ -78,20 +78,3 @@ In my next post I aim to present a design for this prototype and some of the gam
 [blender-house-tutorial-3]: https://www.youtube.com/watch?v=4c8TRSYK3Vo
 [blender-house-tutorial-4]: https://www.youtube.com/watch?v=DJkoHLzYozU
 
-## Texturing
-
-* When creating seems for texturing watch out for vertices in the same location hiding a face as this will cause issues
-
-## Exporting
-
-* Issue exporting different layers as different obejcts.
-
-## House
-
-* How to export the house and the doors separately
-* Problem setting origin of object - door
-* Had to split house in half - streight forward if you have a split through all of the geometry
-* Problem adding porch and steps - have all walls from the beginining before you extrude
-
-* How to mae the top part of te house disapear
-* How to make the door open though navigation
