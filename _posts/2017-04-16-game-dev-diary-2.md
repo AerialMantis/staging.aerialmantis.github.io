@@ -23,7 +23,7 @@ My second task was to create a house model, something that my character model co
 
 ![alt text](https://github.com/AerialMantis/aerialmantis.github.io/raw/master/images/blender-house.png "House model in Blender"){:width="100%"}
 
-If anyone is interested in following these tutorial series' you can find them here: character model ([modelling][blender-character-tutorial-modelling], [texturing][blender-character-tutorial-texturing], [rigging part 1][blender-character-tutorial-rigging-1], [rigging part 2][blender-character-tutorial-rigging-2], [ranimating][blender-character-tutorial-animating]), house ([part 1][blender-house-tutorial-1], [part 2][blender-house-tutorial-2], [part 3][blender-house-tutorial-3], [part 4][blender-house-tutorial-4]).
+If anyone is interested in following these tutorial series' you can find them here: character model ([modelling][blender-character-tutorial-modelling], [texturing][blender-character-tutorial-texturing], [rigging part 1][blender-character-tutorial-rigging-1], [rigging part 2][blender-character-tutorial-rigging-2], [animating][blender-character-tutorial-animating]), house ([part 1][blender-house-tutorial-1], [part 2][blender-house-tutorial-2], [part 3][blender-house-tutorial-3], [part 4][blender-house-tutorial-4]).
 
 ## Integrating into Unity
 
