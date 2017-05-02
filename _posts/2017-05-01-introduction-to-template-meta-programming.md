@@ -7,9 +7,6 @@ categories: c++
 
 One of the most powerful techniques that C\+\+ templates provide is the ability to perform compile-time computations in order to create more generic and optimised code; this is known as template meta programming (TMP).
 
-????
-I decided to write this post because as I looked around for blogs or tutorial on TMP in C\+\+ I found very few which didn't rapidly decent into a rabit hole of ankle braces and colons that would scare even the most proficient C\+\+ developer.
-
 In this post I try to describe the basic principles behind TMP to provide a foundation for understanding their strange and sometimes cryptic sytax.
 
 ## What is Template Meta Programming?
