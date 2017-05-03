@@ -172,7 +172,7 @@ This would result in an error like:
 
 > error: no type named 'tv' in 'struct type_or_value<int>'
 
-The `typename` keyword is not only needed in this case but every context where an unknown member exists in a context where a type is expected. For example:
+The `typename` keyword is not only needed in this case but every where an unknown member exists in a context where either a type or a non-type is valid. For example:
 
 ```cpp
 template <typename T>
