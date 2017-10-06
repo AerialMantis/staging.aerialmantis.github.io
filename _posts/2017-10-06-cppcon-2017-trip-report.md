@@ -11,24 +11,42 @@ Just as with last year the conference was full to the brim with great presentati
 
 ## Highlights
 
-The opening keynote from Bjarne Stroustrup was set around the theme of "we are all students, and we are all teachers", and this set the tone for the rest of the conference. This was continued in the Trainers Panel, with surprise appearance of Scott Meyers.
+The opening keynote from Bjarne Stroustrup [Learning and Teaching Modern C++][learning-and-teaching-modern-cpp] was set around the theme of "we are all students, and we are all teachers", and this set the tone for the rest of the conference. This was continued in the Trainers Panel, with surprise appearance of Scott Meyers.
 
-There were so many interesting talks at the conference that I often struggled to choose what to go see (thankfully all the talks are recorded and putup on youtube). Below are few of my favourites that I woudl recommend checking out:
+There were so many interesting talks at the conference that I often struggled to choose what to go see (thankfully all the talks are recorded and put up on youtube). Below are few of my favourites that I woudl recommend checking out:
 
-* Ben Deane & Jason Turner presented [Constexpr ALL the Things!][constexpr-all-the-things]. A look at the current and potentially future capabilities of constexpr, and they can be used to create a compile-time JSON parser. A great practical demonstration of the power of constexpr.
+* Ben Deane & Jason Turner presented [Constexpr ALL the Things!][constexpr-all-the-things]. A look at the current and potentially future capabilities of constexpr, and how they can be used to create a compile-time JSON parser. A great practical demonstration of the power of constexpr.
 * Anthony Williams presented [Concurrency, Parallelism and Coroutines][concurreny-parallelism-coroutines]. An overview of the current parallelism and concurrency landscape. Good for either those unfamiliar with paralellism and concurrency in C++ or those looking to see what's new.
 * Herb Sutter presented a keynote [Meta: Thoughts on generative C++][thoughts-on-generative-cpp]. An early look at proposed new feature for C++ that would allow developers to redefine the behaviour of a class using compiler-time code injection. This is one which really needs to be seen to be appreciated.
 * Jan Babst presented [Driving Into the Future With Modern C++: A Look at Adaptive Autosar][adaptive-autosar]. A look at new standard set of guidelines for safety critical C++ in automotive with practical examples and guidance. A realling interesting insite into a rapidly developing industry and how they are adapting to C++.
 * David Watson presented [C++ Exceptions and Stack Unwinding][cpp-exceptions-and-stack-unwinding]. An in-depth look at how exception handling is implemented. A great talk for anyone who's ever wondered how the magic of exception handling works.
 * Chandler Caruth presented [Going Nowhere Faster][going-nowhere-fast]. Another great talk from Chandler on optimisation, this time looking at loop optimisation as well as how you can profile memory access to understand where performance is lost. Another must see for those interested in getting the most performance out of their code.
-* Matt Godbolt presented the closing keynote [Unbolting thee Compiler's Lid: What Has My Compiler Done for Me Lately?][what-has-my-compiler-done-for-me]. A look back at the creation to popular compiler explorer tool and the very clever things compilers regularly do for us. A very interesting and entertaining talk, well worth checking out.
+* Matt Godbolt presented the closing keynote [Unbolting thee Compiler's Lid: What Has My Compiler Done for Me Lately?][what-has-my-compiler-done-for-me]. A look back at the creation of the popular compiler explorer tool and the very clever things compilers regularly do for us. A very interesting and entertaining talk, well worth checking out.
 
-## ?
+## Our Presentations
 
-As well as enjoying the conference I was also there to present, as were my two collegues. We presented X, X, X, X and class Y. These will also be available on youtube, though I can never bring myself to watch my own presentations.
+As well as enjoying the conference I was also there to present, as were my two collegues:
+
+* I presented [Designing a Unified Interface for Execution][unified-interface-for-execution], a look at the current proposal for executors.
+* Michael presented [The landscape of parallel programmign models: is it still hard or just OK?][parallel-programming-models] with Paul McKenney and Maged Michael, an analysis of existing programming models for parallel programming models and what the future of parallel programming in C+ looks like.
+* Michael and I presented [C++17 ParallelSTL: A Standardization Experience Report for CPU and GPU on SYCL][parallelstl-standardization-report], a look back at the standardization process of ParallelSTL and how Codeplay were implemented ParallelSTL to accelerate the parallel algorithms on GPUs with a live demo.
+* Christopher presented Learning C++ Isn't Difficult - Teaching C++ Is The Trick, an open discussion session on best practices for teaching C++ and ran a class on [Exploring the C++ Standard Library][exploring-the-cpp-standard-library]
+
+These will also be available on youtube, though I can never bring myself to watch my own presentations.
 
 ## Conclusion
 
 To wrap up, CppCon is a great conference that is well worth attending, not just for the presentations and classes, though they are great, but also to be part of the C++ community there. I hope to be there again next year.
 
-[cpp-samples]: https://github.com/AerialMantis/cpp_samples/tree/master/blog
+[learning-and-teaching-modern-cpp]: https://www.youtube.com/watch?v=fX2W3nNjJIo
+[constexpr-all-the-things]: https://www.youtube.com/watch?v=PJwd4JLYJJY
+[concurreny-parallelism-coroutines]: TODO
+[thoughts-on-generative-cpp]: https://www.youtube.com/watch?v=4AfRAVcThyA
+[adaptive-autosar]: TODO
+[cpp-exceptions-and-stack-unwinding]: TODO
+[going-nowhere-fast]: TODO
+[what-has-my-compiler-done-for-me]: https://www.youtube.com/watch?v=bSkpMdDe4g4
+[unified-interface-for-execution]: TODO
+[parallel-programming-models]: TODO
+[parallelstl-standardization-report]: TODO
+[exploring-the-cpp-standard-library]: TODO
