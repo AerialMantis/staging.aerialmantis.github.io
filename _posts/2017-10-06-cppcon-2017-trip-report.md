@@ -23,18 +23,26 @@ CppCon this year was bigger than ever with 7 tracks, making it even harder to pi
 * Matt Godbolt presented the closing keynote [Unbolting the Compiler's Lid: What Has My Compiler Done for Me Lately?][what-has-my-compiler-done-for-me]. A look back at the creation of the popular compiler explorer tool and the very clever things compilers regularly do for us. A very interesting and entertaining talk, well worth checking out.
 * Sara Chipps presented [Building for the Best of Us: Design and Development with Kids in Mind][building-for-the-best-of-us] presented programmable friendship braceltes for pre-teen girls called [Jewel Bots][jewel-bots], and how to design a more accessible C\+\+ API for a younger demographic. It was a very intertaining presentation with some users of the Jewel Bots as guest speakers, presenting what they had done on the devices.
 
+## Trends
+
+The conference this year did have a few prominent trends.
+
+* The first as I mentioned earlier was the topic of teaching C\+\+, and how best to do it; which as the standard has been quickly evolving and the community growing; has become increasingly improtant. Though this is by no means an answered question; this will continue to be a hot topic for some time, often with no clear right or wrong answer.
+* Another trend as you may imagine was C\+\+17; as the new standard is hot off the standards committee, there was a great number fo talks presenting new features in the language.
+* Finally there was a trend of paralleism and concurrency; there were a number of talks presening the parallelism TS, recently introduced to C\+\+17. With the trend is computer architectures it's becoming increasingly more important to lelverage multi-threaded applications; and the topic of understanding how to achieve this is a rapidly growing area in the C\+\+ community.
+
 ## Our Presentations
 
 As well as enjoying the conference I was also there to present myself along with my two colleagues. My work is in parallelism and heterogeneity in C\+\+, which I was happy to see is a growing area of interest at CppCon.
 
-* I presented [Designing a Unified Interface for Execution][unified-interface-for-execution], a look at the current proposal for executors.
-* Michael presented [The landscape of parallel programming models: is it still hard or just OK?][parallel-programming-models] with Paul McKenney and Maged Michael, an analysis of existing programming models for parallel programming models and what the future of parallel programming in C+ looks like.
-* Michael and I presented [C++17 ParallelSTL: A Standardization Experience Report for CPU and GPU on SYCL][parallelstl-standardization-report], a look back at the standardization process of ParallelSTL and how Codeplay implemented ParallelSTL to accelerate the parallel algorithms on GPUs with a live demo.
-* Christopher presented Learning C\+\+ Isn't Difficult - Teaching C\+\+ Is The Trick, an open discussion session on best practices for teaching C\+\+ and ran a class on Exploring the C\+\+ Standard Library.
+* I presented [Designing a Unified Interface for Execution][unified-interface-for-execution], a look at the current proposal for executors; an effort by the C++ standards committee to standarise execution for a range of multi-threaded, heterogeneous and networking devices.  This was the first public presentation the unified executors proposal; it was recieved very well and we got a lot of great feedback from potential users and implementors.
+* Michael presented [The landscape of parallel programming models: is it still hard or just OK?][parallel-programming-models-p1] with Paul McKenney and Maged Michael, an analysis of existing programming models for parallel programming models and what the future of parallel programming in C+ looks like. This was a 2 part talk which took an in-depth look from the hardware all the way up to the high-level software abstractions. Part 2 of this can be fond [here][parallel-programming-models-p1].
+* Michael and I presented [C++17 ParallelSTL: A Standardization Experience Report for CPU and GPU on SYCL][parallelstl-standardization-report], a look back at the standardization process of ParallelSTL and how Codeplay implemented ParallelSTL to accelerate the parallel algorithms on GPUs with a live demo. In this presentation we demonstrated ParallelSTL running on a GPU using [an implementation based on SYCL][sycl-parallel-stl], and this was very well recieved.
+* Christopher presented Learning C\+\+ Isn't Difficult - Teaching C\+\+ Is The Trick, an open discussion session on best practices for teaching C\+\+ and ran a class on Exploring the C\+\+ Standard Library. This session was also very well recieved and the audiance was very engaded leading to some very interesting discussion about best practices when it cmes to teaching C\+\+.
 
 ## Getting the Most out of CppCon
 
-For anyone considering attending a later CppCon, I thought I'd give some pointers why you should go and how to get the best out of it.
+For anyone considering attending next years CppCon, I thought I'd give some pointers why you should go and how to get the best out of it.
 
 You might think that since the talks are made available online there's not much point in going to the conference itself. But the talks are just the tip of the iceberg at CppCon. There is a great deal of content that is not made available online such as classes, open content and the poster session, and this is not to mention the benefit of simply being at the conference amongst a welcoming community of C\+\+ developers.
 
@@ -65,3 +73,4 @@ To wrap up, CppCon is a great conference that is well worth attending, not just 
 [parallelstl-standardization-report]: https://www.youtube.com/watch?v=RoUYiHTsEFE
 [building-for-the-best-of-us]: https://www.youtube.com/watch?v=zX0YoCDWGxc
 [jewel-bots]: https://jewelbots.com/
+[sycl-parallel-stl]: https://github.com/KhronosGroup/SyclParallelSTL
