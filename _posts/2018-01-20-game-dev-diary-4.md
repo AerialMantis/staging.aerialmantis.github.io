@@ -39,7 +39,7 @@ I also created idle and attack animations for the human character and idle, atta
 
 ## What's Next
 
-For my next task I'm going to start writing some code, I'm going to create an RTS camera controller for Unity so I can naviagate the same world better.
+For my next task I'm going to start writing some code, I'm going to create an RTS camera controller for Unity so I can naviagate the game world better.
 
 [previous-post]: http://www.aerialmantis.co.uk/blog/2017/11/17/game-dev-diary-3/
 [post-on-3d-modelling]: http://www.aerialmantis.co.uk/blog/2017/04/16/game-dev-diary-2/
