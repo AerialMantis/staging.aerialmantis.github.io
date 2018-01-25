@@ -17,23 +17,23 @@ For the final game I want the survival aspec to take many forms; survival from z
 
 The first thing I needed for the game was a character model. As I showed in a [previous post][post-on-3d-modelling] I created a character model already, though that one was a copy of the model the tutorial was demonstrating and I wanted something a little different. As a first character model for my game I wanted something very simple, without any details or texturing, and something which could be used for both the human characters and the zombie characters, a placeholder for future more detailed models.
 
-In order to experiement with different mechanics I needed this model to have a range of different animations. Though the animations too didn't have to be particularly detailed, they also just had to be enough that you could identify what the characters in the game were doing.
+In order to experiement with different mechanics I needed this model to have a few typical animations. The animations too didn't have to be particularly detailed, just enough that you could identify whether characters in the game were humans or zombies and what they were doing.
 
-For this character model I followed the same tutorials which I used in [my post on 3D modelling in Blender][post-on-3d-modelling]. Though this time I used them for as a reference rather than a step by step guide. I still followed the general steps of the modelling process, though I made this character simpler and more toonish. Doing my own animations was tough, but I felt by the end I was starting to get the hang of it, even if all my animations were extremely basic.
+For this character model I followed the same tutorials which I used in [my post on 3D modelling in Blender][post-on-3d-modelling]. Though this time I used them for as a reference rather than a step by step guide. I still followed the general steps of the modelling process, though I made this character simpler and more toonish and generic. Doing my own animations was tough, but I felt by the end I was starting to get the hang of it, even if all my animations were very basic.
 
-The first animation I did was a walk animation cycle for the human character; this was pretty straight forward as I pretty closely followed the walk animation from the [tutorial][animation-tutorial].
+The first animation I did was a walk animation cycle for the human character; this was pretty straight forward as I pretty closely followed the poses of the walk animation from the [tutorial][animation-tutorial].
 
 ![alt text](https://github.com/AerialMantis/aerialmantis.github.io/raw/master/images/game-dev-diary-4/human-walk.png "Human walk animation cycle"){:width="100%"}
 
-Next I did a run animation cycle for the human character. This was a bit trickier; I was able to use the poses from the walk animation as a guide but I had to figure out what those poses should be for a run cycle. It was also a lot of fun, slow motion running around my house enacing the poses in order to figure out the key frames.
+Next I did a run animation cycle for the human character. This was a bit trickier; I was able to use the poses from the walk animation as a guide but I had to figure out what those poses should be for a run cycle. It was also a lot of fun, slow motion running around my house enacing the animation in order to figure out the poses.
 
 ![alt text](https://github.com/AerialMantis/aerialmantis.github.io/raw/master/images/game-dev-diary-4/human-run.png "Human run animation cycle"){:width="100%"}
 
-After that I did a walk animation cycle for the zombie character. For this one I cheated a little, I based the poses off of the human walk cycle, but made the feet drag rather than lift, and raised the arms forward. I also staggered the certain poses so that the movement seemed staggered rather than smooth.
+After that I did a walk animation cycle for the zombie character. For this one I cheated a little, I based the poses off of the human walk cycle, but made the feet drag rather than lift, and raised the arms forward. I also shifted certain poses so that the movement seemed staggered rather than smooth.
 
 ![alt text](https://github.com/AerialMantis/aerialmantis.github.io/raw/master/images/game-dev-diary-4/zombie-walk.png "Zombie walk animation cycle"){:width="100%"}
 
-I also created idle and attack animations for the human character and idle, attack and death animations for the zombie. Though I made a bit of a mistake with the death animations, as I didn't disable the inverse kinematics on the feet of the model, so the feet ended up in some strange positions.
+I also created idle, attack and death animations for the human character and zombie character. Though I made a bit of a mistake with the death animations, because I didn't disable the inverse kinematics on the feet of the model, the feet ended up in some strange positions.
 
 ![alt text](https://github.com/AerialMantis/aerialmantis.github.io/raw/master/images/game-dev-diary-4/human-die.png "Human death animation"){:width="100%"}
 
